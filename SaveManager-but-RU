@@ -306,7 +306,7 @@ local SaveManager = {} do
 		end})
 
 		local AutoloadButton
-		AutoloadButton = section:AddButton({Title = "Set as autoload", Description = "Current autoload config: none", Callback = function()
+		AutoloadButton = section:AddButton({Title = "Поставить на авто-загрузку", Description = "На данный момент поставлено: Ничего", Callback = function()
 			local name = SaveManager.Options.SaveManager_ConfigList.Value
 			writefile(`{self.Folder}/settings/autoload.txt`, name)
 			AutoloadButton:SetDesc("Current autoload config: " .. name)
