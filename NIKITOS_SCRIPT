@@ -165,6 +165,17 @@ FBToggle_T:OnChanged(function() ---------------------------ОБАМА! Я НЕ �
     FBToggle_F()---ААААААААААААААА!!!!
 end)
 
+local Slider = Tabs.Main:AddSlider("Slider", {
+	Title = "Скорость",
+	Description = "Не испоьзуйте в Doors и в других играх где может быть Анти-Чит",
+	default = 16,
+	Min = 0,
+	Max = 100,
+	Rounding = 2,
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end
+})
 Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium Hub (С подтверждением)
     Title = "Загрузить Plutonium Hub",
     Description = "(Это не мое, так что баги - не моя вина)",
