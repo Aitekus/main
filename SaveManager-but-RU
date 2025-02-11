@@ -279,7 +279,7 @@ local SaveManager = {} do
 			})
 		end})
 
-		section:AddButton({Title = "Overwrite config", Callback = function()
+		section:AddButton({Title = "Переписать конфигурацию", Callback = function()
 			local name = SaveManager.Options.SaveManager_ConfigList.Value
 
 			local success, err = self:Save(name)
@@ -300,7 +300,7 @@ local SaveManager = {} do
 			})
 		end})
 
-		section:AddButton({Title = "Refresh list", Callback = function()
+		section:AddButton({Title = "Обновить лист", Callback = function()
 			SaveManager.Options.SaveManager_ConfigList:SetValues(self:RefreshConfigList())
 			SaveManager.Options.SaveManager_ConfigList:SetValue(nil)
 		end})
