@@ -192,31 +192,6 @@ Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium Hub (С �
 }
 
 Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium hub (С подтверждением)
-    Title = "Загрузить Plutonium Hub",
-    Description = "(Это не мое, так что баги - не моя вина)",
-    Callback = function()
-        Window:Dialog{
-            Title = "Точно?",
-            Content = " ",
-            Buttons = {
-                {
-                    Title = "Confirm",
-                    Callback = function()
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/main/Plutonium.Loader.lua", true))()
-                        print("NIKITOSIK | Принятие загрузки Plutonium Hub")
-                    end
-                },
-                {
-                    Title = "Cancel",
-                    Callback = function()
-                        Print("NIKITOSIK | Отказ от загрузки Plutonium Hub")
-                    end
-                }
-            }
-        }
-    end
-}
-Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium hub (С подтверждением)
     Title = "Загрузить BlackKing Hub",
     Description = "(Это не мое, так что баги - не моя вина)",
     Callback = function()
