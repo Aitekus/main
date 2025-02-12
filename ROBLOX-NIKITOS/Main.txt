@@ -103,7 +103,7 @@ local Tabs = {
         Icon = "phosphor-users-bold"
     },
     Settings = Window:CreateTab{
-        Title = "Settings",
+        Title = "Настройки",
         Icon = "settings"
     }
 }
