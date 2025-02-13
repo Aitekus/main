@@ -2,8 +2,10 @@
 Это мои работы.
 Ресурсы которые я использовал;
 
-NIKITOS: [Fluent-Rewened](https://github.com/ActualMasterOogway), 
+NIKITOS: 
 
-[BlackKing](https://github.com/KINGHUB01), 
+1 [Fluent-Rewened](https://github.com/ActualMasterOogway), 
 
-[Plutonium](https://github.com/PawsThePaw/PawsThePaw)
+2 [BlackKing](https://github.com/KINGHUB01), 
+
+3 [Plutonium](https://github.com/PawsThePaw/PawsThePaw)
