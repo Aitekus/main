@@ -1,6 +1,6 @@
 # Привет!
 Это мои работы.
-Ресурсы которые я использовал:
+Ресурсы которые я использовал;
 
 NIKITOS: [Fluent-Rewened](https://github.com/ActualMasterOogway), 
 
