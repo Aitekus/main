@@ -13,8 +13,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.
 
 --Loadstring-и
 local Library = loadstring(game:HttpGetAsync("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))() --Библиотека Fluent
-local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Aitekus/main/refs/heads/main/ROBLOX-NIKITOS/SaveManager_RU.txt"))() --Модуль сохранений
-local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Aitekus/main/refs/heads/main/ROBLOX-NIKITOS/InterfaceManager_RU"))() --Модуль интерфейса
+local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Aitekus/main/refs/heads/main/ROBLOX-NIKITOS/SaveManager_RU.lua"))() --Модуль сохранений
+local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Aitekus/main/refs/heads/main/ROBLOX-NIKITOS/InterfaceManager_RU.lua"))() --Модуль интерфейса
 
 --Игрок
 local Player = game.Players.LocalPlayer
@@ -176,9 +176,6 @@ local Slider = Tabs.Main:AddSlider("Slider", {
 	Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 	end
-	PlayerHuma.WalkSpeed:OnChanged(function(A_Value =PlayerHuma.WalkSpeed)
-		Value = A_Value
-	end)
 })
 Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium Hub (С подтверждением)
     Title = "Загрузить Plutonium Hub",
