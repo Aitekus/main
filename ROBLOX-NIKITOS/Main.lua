@@ -1,4 +1,3 @@
-print("У ВАС ЗАДОЛЖЕНОСТЬ 1.5 МИЛИОННА БОБОВ В БОБО БАНКЕ!!!!!!!! ОПЛАТИТЕ ИНАЧЕ ПРИДУТ ЖУКИ!!1!11!!!!!!")
 --[[
 Переходя ко Fluent-у, хотел бы сказать что это не моя библеотека.
 https://github.com/ActualMasterOogway/Fluent-Renewed/ <---------
@@ -34,12 +33,10 @@ local DoorsLobby = 6516141723
 local DoorsIn = 6839171747
 local PressureIn = "Unknown"
 local DustyTripIn = "Unknown"
+local Grace = 110333320616502
 
-function GetGameName(PlaceId) 
-    if PlaceId == Fisch then return "Fisch" elseif PlaceId == BABFT then return "BABFT" elseif PlaceId == TSB then return "TSB" elseif PlaceId == BladeBall then return "Blade Ball" elseif PlaceId == DoorsLobby then return "Doors - лобби" elseif PlaceId == DoorsIn then return "Doors - В игре" elseif PlaceId == PreasureIn then return "Pressure" elseif PlaceId == DustyTripIn then return "DustyTrip - В игре" else return "Не найдено"
-    end 
+if PlaceId == Grace then CurGame = "Grace" elseif PlaceId == Fisch then CurGame = "Fisch" elseif PlaceId == BABFT then CurGame = "BABFT" elseif PlaceId == TSB then CurGame = "TSB" elseif PlaceId == BladeBall then CurGame = "Blade Ball" elseif PlaceId == DoorsLobby then CurGame = "Doors - лобби" elseif PlaceId == DoorsIn then CurGame = "Doors - В игре" elseif PlaceId == PreasureIn then CurGame = "Pressure" elseif PlaceId == DustyTripIn then CurGame = "DustyTrip - В игре" else  CurGame = "Не найдено"
 end 
-local CurGame = GetGameName(PlaceId)
 
 --Что то другое, но нужное (мб)
 test = "test"
@@ -120,7 +117,7 @@ Library:Notify{
 
 local MainParagraph = Tabs.Main:CreateParagraph("MainParagraph", { --Параграф 1, общая инфа
     Title = "Здраствуй, " .. PLayerName,
-    Content = "Игра: " .. test .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower,
+    Content = "Игра: " .. CurGame .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower,
 })
 
 
@@ -134,19 +131,19 @@ local Paragraph = Tabs.Main:CreateParagraph("Paragraph", { --Параграф 2,
 
 local FBToggle_T = Tabs.Main:CreateToggle("FBToggle_T", {Title = "Светлота", Default = false }) --Toggle на FB
 
-OldBrightness = game.Lighting.Brightness
-OldClocktime = game.Lighting.ClockTime
-OldFogEnd = game.Lighting.FogEnd
-OldGlobalShadows = game.Lighting.GlobalShadows
-OldOutdoorAmbient = game.Lighting.OutdoorAmbient
+local OldBrightness = game.Lighting.Brightness
+local OldClocktime = game.Lighting.ClockTime
+local OldFogEnd = game.Lighting.FogEnd
+local OldGlobalShadows = game.Lighting.GlobalShadows
+local OldOutdoorAmbient = game.Lighting.OutdoorAmbient
 
 function FBToggle_F() --Функция которая включает/выключает светлоту
     if Options.FBToggle_T.Value == true then
-        OldBrightness = game.Lighting.Brightness
-        OldClocktime = game.Lighting.ClockTime
-        OldFogEnd = game.Lighting.FogEnd
-        OldGlobalShadows = game.Lighting.GlobalShadows
-        OldOutdoorAmbient = game.Lighting.OutdoorAmbient
+        local OldBrightness = game.Lighting.Brightness
+        local OldClocktime = game.Lighting.ClockTime
+        local OldFogEnd = game.Lighting.FogEnd
+        local OldGlobalShadows = game.Lighting.GlobalShadows
+        local OldOutdoorAmbient = game.Lighting.OutdoorAmbient
 
         game.Lighting.Brightness = 5
 		game.Lighting.ClockTime = 14
@@ -168,9 +165,9 @@ end)
 
 local Slider = Tabs.Main:AddSlider("Slider", {
 	Title = "Скорость",
-	Description = "Не испоьзуйте в Doors и в других играх где может быть Анти-Чит",
+	Description = "He испоьзуйте в Doors и в других играх где может быть Анти-Чит",
 	default = PlayerHuma.WalkSpeed,
-	Min = 0,
+	Min = 16,
 	Max = 100,
 	Rounding = 2,
 	Callback = function(Value)
@@ -203,7 +200,7 @@ Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium Hub (С �
     end
 }
 
-Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium hub (С подтверждением)
+Tabs.Main:CreateButton{ --Кнопка на загрузку BlackKing hub (С подтверждением)
     Title = "Загрузить BlackKing Hub",
     Description = "(Это не мое, так что баги - не моя вина)",
     Callback = function()
@@ -228,6 +225,39 @@ Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium hub (С �
         }
     end
 }
+
+agree = false
+if CurGame == "Grace" then
+Tabs.Main:CreateButton{ --Кнопка на удаление сущностей в Grace кроме аналога глаз и еще красной хуйни
+    Title = "Уничтожить Carnation, Slugfish, Sorrow, Goatman",
+    Description = "Прикольно, да?",
+    Callback = function()
+        Window:Dialog{
+            Title = "Точно?",
+            Content = " ",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        RS = game.ReplicatedStorage
+                        RS.SendRush:Destroy()
+                        RS.SendWorm:Destroy()
+                        RS.SendSorrow:Destroy()
+                        RS.SendGoatman:Destroy()
+                        print("NIKITOSIK | Принятие удаления всех сущностей в Grace")
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        Print("NIKITOSIK | Отказ от уничтожения всех сущностей")
+                    end
+                }
+            }
+        }
+    end
+}
+end
 local Toggle = Tabs.Main:CreateToggle("MyToggle", {Title = "Toggle", Default = false }) --Запасной
 
 Toggle:OnChanged(function()
@@ -495,11 +525,32 @@ Library:Notify{
 SaveManager:LoadAutoloadConfig()
 --Бесконечности
 
-while wait(0.1) do 
-local Player = game.Players.LocalPlayer
-local PLayerName = Player.Name
-local PLayerChar = Player.Character
-local PlayerHuma = PLayerChar.Humanoid
+while wait(0.1) do
+    if CurGame == "Grace" then
+        for _, v in pairs(Game.Workspace.Rooms:GetChildren()) do
+            if v:IsA("Model") and v:FindFirstChild("Door") then
+                doord = v:FindFirstChild("Door")
+                doord.Parent = nil
+                doord:Destroy()
+            end
+        end
+        for _, room in pairs(Game.Workspace.Rooms:GetChildren()) do
+            -- Проверяем, что у комнаты есть объект SafeRoom и внутри него есть VaultEnterance
+            local safeRoom = room:FindFirstChild("SafeRoom")
+            if safeRoom then
+                local vaultEntrance = safeRoom:FindFirstChild("VaultEntrance")
+                if vaultEntrance then
+                    vaultEntrance.Parent = nil
+                end
+            end
+        end
+    end
 
-MainParagraph:SetValue("Игра: " .. test .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower) 
+
+    Player = game.Players.LocalPlayer
+    PLayerName = Player.Name
+    PLayerChar = Player.Character
+    PlayerHuma = PLayerChar.Humanoid
+
+    MainParagraph:SetValue("Игра: " .. test .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower) 
 end
