@@ -479,7 +479,7 @@ Library:Notify{
 SaveManager:LoadAutoloadConfig()
 --Бесконечности
 
-while wait(3) do
+while wait(1) do
     if CurGame == "Grace" then
         for _, room in pairs(Game.Workspace.Rooms:GetChildren()) do
             if room:IsA("Model") then
