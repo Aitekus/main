@@ -1,13 +1,22 @@
 --[[
-Переходя ко Fluent-у, хотел бы сказать что это не моя библеотека.
-https://github.com/ActualMasterOogway/Fluent-Renewed/ <---------
-Так же с иконками.
-https://lucide.dev/icons/ <---------
-И Plutonium Hub
-loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/main/Plutonium.Loader.lua", true))() <---------
-Это мой первый скрипт так что не судите строго, ок?
-Бог, помилуй меня и не выкидывай мне кучу багов. Я же делаю комментарии тут.
-Я в ТГ: @Chelik_Chepubelik
+Материалы отмеченые ниже, не мои
+Библиотека для визуала
+https://github.com/ActualMasterOogway/Fluent-Renewed/
+Библиотека с иконками | 1
+https://lucide.dev/icons/
+Библиотека с иконками | 2
+https://phosphoricons.com/
+Plutonium Hub
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/main/Plutonium.Loader.lua", true))()
+BlackKing Hub
+loadstring(game:HttpGet('https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing'))()
+
+Я использовал ChatGpt
+Это мой первый скрипт
+
+/ Не судите строго /
+
+Я в Telegram: @Chelik_Chepubelik
 ]]--
 
 --Loadstring-и
@@ -16,14 +25,14 @@ local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.
 local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Aitekus/main/refs/heads/main/ROBLOX-NIKITOS/InterfaceManager_RU.lua"))() --Модуль интерфейса
 
 --Игрок
-local Player = game.Players.LocalPlayer
-local PLayerName = Player.Name
-local PLayerChar = Player.Character
-local PlayerHuma = PLayerChar.Humanoid
+local Player = game.Players.LocalPlayer --Игрок в game.Players
+local PLayerName = Player.Name --Nickname игрока
+local PLayerChar = Player.Character --Персонаж игрока
+local PlayerHuma = PLayerChar.Humanoid --Humanoid игрока
 
 --Игра + Айдишники
-local PlaceId = game.PlaceId
-local CurGame = "He поддержана"
+local PlaceId = game.PlaceId --PlaceId игры
+local CurGame = "He поддержана" --Перемменая отвечающая за игру
 
 local Fisch = 16732694052
 local BABFT = 537413528
@@ -36,121 +45,87 @@ local DustyTripIn = "Unknown"
 local Grace = 110333320616502
 
 if PlaceId == Grace then CurGame = "Grace" elseif PlaceId == Fisch then CurGame = "Fisch" elseif PlaceId == BABFT then CurGame = "BABFT" elseif PlaceId == TSB then CurGame = "TSB" elseif PlaceId == BladeBall then CurGame = "Blade Ball" elseif PlaceId == DoorsLobby then CurGame = "Doors - лобби" elseif PlaceId == DoorsIn then CurGame = "Doors - В игре" elseif PlaceId == PreasureIn then CurGame = "Pressure" elseif PlaceId == DustyTripIn then CurGame = "DustyTrip - В игре" else  CurGame = "Не найдено"
-end 
+end --Проверка Id-Шников. Если не найдено, то ничего не изменяется и остается "Не поддержана" // см. строку 30
 
---Что то другое, но нужное (мб)
-test = "test"
+--Необязательный дебаг
+test = "test123@"
 
 
---[[local TestModule = loadstring(
-    function testingidk(OPTION)
-        if OPTION == text
-            return "test"
-        elseif OPTION == print
-            print("test")
-        elseif OPTION == kick
-            game.Players.Nikitosik873973:kick
-        end
-    end
-    return testingidk()
-)
-TestModule:tes(print)
 
-        OldBrightness = game.Lighting.Brightness
-        OldClocktime = game.Lighting.ClockTime
-        OldFogEnd = game.Lighting.FogEnd
-        OldGlobalShadows = game.Lighting.GlobalShadows
-        OldOutdoorAmbient = game.Lighting.OutdoorAmbient
-
-FBToggle:OnChanged(function()
-    if Options.FBToggle.Value == true then
-        game.Lighting.Brightness = 5
-		game.Lighting.ClockTime = 14
-		game.Lighting.FogEnd = 100000
-		game.Lighting.GlobalShadows = false
-		game.Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-    else
-        game.Lighting.Brightness = OldBrightness 
-        game.Lighting.ClockTime = OldClocktime
-        game.Lighting.FogEnd = OldFogEnd
-        game.Lighting.GlobalShadows = OldGlobalShadows
-        game.Lighting.OutdoorAmbient = OldOutdoorAmbient
-
- 
-    end
-end)
-]]
 --Fluent
 
-local Window = Library:CreateWindow{
-    Title = "NIKITOS",
-    SubTitle = "Придумай сам что тут написано...",
-    TabWidth = 160,
-    Size = UDim2.fromOffset(830, 525), 
+local Window = Library:CreateWindow{ --Создание окна
+    Title = "NIKITOS", --Заговолок окна
+    SubTitle = "Придумай сам что тут написано...", --Подзаговолок окна
+    TabWidth = 160, --Работает - не трогай
+    Size = UDim2.fromOffset(830, 525), --Работает - не трогай
     Resize = true, -- Resize this ^ Size according to a 1920x1080 screen, good for mobile users but may look weird on some devices
-    MinSize = Vector2.new(470, 380),
-    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.RightControl -- Used when theres no MinimizeKeybind
+    MinSize = Vector2.new(470, 380), --Минимальный размер
+    Acrylic = true, --Блюр может быть замечен, поставив на false вы отключите блюр полностью
+    Theme = "Dark", --Тема
+    MinimizeKey = Enum.KeyCode.RightControl --Использована если нету Minimize bind (Кнопка для сворачивания)
 }
 
--- Fluent Renewed provides ALL 1544 Lucide 0.469.0 https://lucide.dev/icons/ Icons and ALL 9072 Phosphor 2.1.0 https://phosphoricons.com/ Icons for the tabs, icons are optional
-local Tabs = {
-    Main = Window:CreateTab{
-        Title = "Общее",
-        Icon = "phosphor-users-bold"
+--Fluent Renewed представляет возможным использовать ВСЕ 1544 Lucide 0.469.0 https://lucide.dev/icons/ иконки и ВСЕ 9072 Phosphor 2.1.0 https://phosphoricons.com/ иконки для табов. Иконки на выбор :D
+local Tabs = { --Все табы
+    Main = Window:CreateTab{ --Создание таба
+        Title = "Общее", --Название таба
+        Icon = "phosphor-users-bold" --Иконка таба
     },
-    Settings = Window:CreateTab{
-        Title = "Настройки",
-        Icon = "settings"
+    Settings = Window:CreateTab{ --Создание таба
+        Title = "Настройки", --Название таба
+        Icon = "settings" --Иконка таба
     }
 }
 
 local Options = Library.Options
 
-Library:Notify{
-    Title = "Notification",
-    Content = "This is a notification",
-    SubContent = "SubContent", -- Optional
-    Duration = 5 -- Set to nil to make the notification not disappear
+Library:Notify{ --Оповестить
+    Title = "Notification", --Название оповещения
+    Content = "This is a notification", --Контент оповещения
+    SubContent = "SubContent", --ПодКонтент оповещения
+    Duration = 5 --Сколько секунд пробудет // Поставьте на nil чтоб не исчезало
 }
 
-local MainParagraph = Tabs.Main:CreateParagraph("MainParagraph", { --Параграф 1, общая инфа
-    Title = "Здраствуй, " .. PLayerName,
-    Content = "Игра: " .. CurGame .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower,
+local MainParagraph = Tabs.Main:CreateParagraph("MainParagraph", { --Параграф 1 // Общая инфа
+    Title = "Здраствуй, " .. PLayerName, --Название параграфа
+    Content = "Игра: " .. CurGame .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower, --Контент параграфа
 })
 
 
 
-local Paragraph = Tabs.Main:CreateParagraph("Paragraph", { --Параграф 2, "Общие функии"
-    Title = "Общие функции",
-    Content = nil,
-    TitleAlignment = "Middle",
-    ContentAlignment = Enum.TextXAlignment.Center
+local Paragraph = Tabs.Main:CreateParagraph("Paragraph", { --Параграф 2 // "Общие функции"
+    Title = "Общие функции", --Название параграфа
+    Content = nil, --Контент параграфа
+    TitleAlignment = "Middle", --Где будет название параграфа // Слева/Посередине/Справа
+    ContentAlignment = Enum.TextXAlignment.Center --Где будет контент параграфа // Слева/Посередине/Справа
 })
 
-local FBToggle_T = Tabs.Main:CreateToggle("FBToggle_T", {Title = "Светлота", Default = false }) --Toggle на FB
+local FBToggle_T = Tabs.Main:CreateToggle("FBToggle_T", {Title = "Светлота", Default = false }) --Переключатель на светлоту
 
+--Установка старых значений
 local OldBrightness = game.Lighting.Brightness
 local OldClocktime = game.Lighting.ClockTime
 local OldFogEnd = game.Lighting.FogEnd
 local OldGlobalShadows = game.Lighting.GlobalShadows
 local OldOutdoorAmbient = game.Lighting.OutdoorAmbient
 
-function FBToggle_F() --Функция которая включает/выключает светлоту
-    if Options.FBToggle_T.Value == true then
+local function FBToggle_F() --Функция которая включает/выключает светлоту
+    if Options.FBToggle_T.Value == true then --Если переключатель включен то...
+        --Сохранение старых значений
         local OldBrightness = game.Lighting.Brightness
         local OldClocktime = game.Lighting.ClockTime
         local OldFogEnd = game.Lighting.FogEnd
         local OldGlobalShadows = game.Lighting.GlobalShadows
         local OldOutdoorAmbient = game.Lighting.OutdoorAmbient
 
+        --Осветление
         game.Lighting.Brightness = 5
 		game.Lighting.ClockTime = 14
 		game.Lighting.FogEnd = 100000
 		game.Lighting.GlobalShadows = false
 		game.Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-    else
+    else --Если переключатель выключен то... // Сразу выполнается т.к. переключатель установлен на false 
         game.Lighting.Brightness = OldBrightness 
         game.Lighting.ClockTime = OldClocktime
         game.Lighting.FogEnd = OldFogEnd
@@ -159,40 +134,40 @@ function FBToggle_F() --Функция которая включает/выкл�
     end
 end
 
-FBToggle_T:OnChanged(function() ---------------------------ОБАМА! Я НЕ ХОЧУ В БРАЗИЛИЮ!!!! ХВАТИТ!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    FBToggle_F()---ААААААААААААААА!!!!
+FBToggle_T:OnChanged(function() --Активация при переключении
+    FBToggle_F() --Функция которая включает/выключает светлоту // см. строка 110
 end)
 
-local Slider = Tabs.Main:AddSlider("Slider", {
-	Title = "Скорость",
-	Description = "He испоьзуйте в Doors и в других играх где может быть Анти-Чит",
-	default = PlayerHuma.WalkSpeed,
-	Min = 16,
-	Max = 100,
-	Rounding = 2,
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+local Slider = Tabs.Main:AddSlider("Slider", { --Создание слайдера
+	Title = "Скорость", --Название слайдера
+	Description = "He испоьзуйте в Doors и в других играх где может быть Анти-Чит", --Описание слайдера
+	default = 16, --Начальное значение
+	Min = 0, --Минимальное значение
+	Max = 100, --Максимальное значение
+	Rounding = 2, --Изменение значения
+	Callback = function(Value) --Функция при изменении значения
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value --Установка скорости Humanoid-у
 	end
 })
-Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium Hub (С подтверждением)
-    Title = "Загрузить Plutonium Hub",
-    Description = "(Это не мое, так что баги - не моя вина)",
-    Callback = function()
-        Window:Dialog{
-            Title = "Точно?",
-            Content = "Уверен?",
-            Buttons = {
+Tabs.Main:CreateButton{ --Создание кнопки с подтверждением // Кнопка на загрузку Plutonium Hub
+    Title = "Загрузить Plutonium Hub", --Название кнопки
+    Description = "(Это не мое, так что баги - не моя вина)", --Описание кнопки
+    Callback = function() --Актвиация при нажатии
+        Window:Dialog{ --Призыв окна диалога
+            Title = "Точно?", --Заголовок окна диалога
+            Content = "Уверен?", --Контент окна диалога
+            Buttons = { --Кнопки окна диалога
                 {
-                    Title = "Confirm",
-                    Callback = function()
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/main/Plutonium.Loader.lua", true))()
-                        print("NIKITOSIK | Принятие загрузки Plutonium Hub")
+                    Title = "Confirm", --Название кнопки окна диалога
+                    Callback = function() --Активация при нажатии
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/main/Plutonium.Loader.lua", true))() --Загрузить Plutonium Hub
+                        print("NIKITOSIK | Принятие загрузки Plutonium Hub") --Написать в консоль
                     end
                 },
                 {
-                    Title = "Cancel",
-                    Callback = function()
-                        print("NIKITOSIK | Отказ от загрузки Plutonium Hub")
+                    Title = "Cancel", --Название кнопки окна диалога
+                    Callback = function() --Активация при нажатии
+                        print("NIKITOSIK | Отказ от загрузки Plutonium Hub") --Написать в консоль
                     end
                 }
             }
@@ -200,25 +175,25 @@ Tabs.Main:CreateButton{ --Кнопка на загрузку Plutonium Hub (С �
     end
 }
 
-Tabs.Main:CreateButton{ --Кнопка на загрузку BlackKing hub (С подтверждением)
-    Title = "Загрузить BlackKing Hub",
-    Description = "(Это не мое, так что баги - не моя вина)",
-    Callback = function()
-        Window:Dialog{
-            Title = "Точно?",
-            Content = " ",
-            Buttons = {
+Tabs.Main:CreateButton{ --Создание кнопки с подтверждением // Кнопка на загрузку BlackKing Hub
+    Title = "Загрузить BlackKing Hub", --Название кнопки
+    Description = "(Это не мое, так что баги - не моя вина)", --Описание кнопки
+    Callback = function() --Актвиация при нажатии
+        Window:Dialog{ --Призыв окна диалога
+            Title = "Точно?", --Заголовок окна диалога
+            Content = " ", --Контент окна диалога
+            Buttons = { --Кнопки окна диалога
                 {
-                    Title = "Confirm",
-                    Callback = function()
-                        loadstring(game:HttpGet('https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing'))()
+                    Title = "Confirm", --Название кнопки окна диалога
+                    Callback = function() --Активация при нажатии
+                        loadstring(game:HttpGet('https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing'))() --Загрузить BlackKing Hub
                         print("NIKITOSIK | Принятие загрузки BlackKing Hub")
                     end
                 },
                 {
-                    Title = "Cancel",
-                    Callback = function()
-                        Print("NIKITOSIK | Отказ от загрузки BlackKing Hub")
+                    Title = "Cancel", --Название кнопки окна диалога
+                    Callback = function() --Активация при нажатии
+                        print("NIKITOSIK | Отказ от загрузки BlackKing Hub") --Написать в консоль
                     end
                 }
             }
@@ -226,31 +201,30 @@ Tabs.Main:CreateButton{ --Кнопка на загрузку BlackKing hub (С �
     end
 }
 
-agree = false
-if CurGame == "Grace" then
-Tabs.Main:CreateButton{ --Кнопка на удаление сущностей в Grace кроме аналога глаз и еще красной хуйни
+if CurGame == "Grace" then --Подтверждение того, что текущая игра Grace
+Tabs.Main:CreateButton{ --Создание кнопки с подтверждением // Кнопка на удаление Carnation, Slugfish, Sorrow, Goatman
     Title = "Уничтожить Carnation, Slugfish, Sorrow, Goatman",
     Description = "Прикольно, да?",
     Callback = function()
         Window:Dialog{
-            Title = "Точно?",
-            Content = " ",
-            Buttons = {
+            Title = "Точно?", --Название кнопки
+            Content = " ", --Контент окна диалога
+            Buttons = { --Кнопки окна диалога
                 {
-                    Title = "Confirm",
-                    Callback = function()
-                        RS = game.ReplicatedStorage
-                        RS.SendRush:Destroy()
-                        RS.SendWorm:Destroy()
-                        RS.SendSorrow:Destroy()
-                        RS.SendGoatman:Destroy()
-                        print("NIKITOSIK | Принятие удаления всех сущностей в Grace")
+                    Title = "Confirm", --Название кнопки окна диалога
+                    Callback = function() --Активация при нажатии
+                        local RS = game.ReplicatedStorage --Создание переменной для game.ReplicatedStorage
+                        RS.SendRush:Destroy() --Удаление Carnation
+                        RS.SendWorm:Destroy() --Удаление Slugfish
+                        RS.SendSorrow:Destroy() --Удаление Sorrow
+                        RS.SendGoatman:Destroy() --Удаление Goatman
+                        print("NIKITOSIK | Принятие удаления всех сущностей в Grace") --Написать в консоль
                     end
                 },
                 {
-                    Title = "Cancel",
-                    Callback = function()
-                        Print("NIKITOSIK | Отказ от уничтожения всех сущностей")
+                    Title = "Cancel", --Название кнопки окна диалога
+                    Callback = function() --Активация при нажатии
+                        Print("NIKITOSIK | Отказ от уничтожения всех сущностей") --Написать в консоль
                     end
                 }
             }
@@ -258,7 +232,8 @@ Tabs.Main:CreateButton{ --Кнопка на удаление сущностей 
     end
 }
 end
-local Toggle = Tabs.Main:CreateToggle("MyToggle", {Title = "Toggle", Default = false }) --Запасной
+--Осторожно! // Бескоментарная зона!
+local Toggle = Tabs.Main:CreateToggle("MyToggle", {Title = "Toggle", Default = false })
 
 Toggle:OnChanged(function()
     print("Toggle changed:", Options.MyToggle.Value)
@@ -525,13 +500,17 @@ Library:Notify{
 SaveManager:LoadAutoloadConfig()
 --Бесконечности
 
-while wait(0.1) do
+while wait(3) do
     if CurGame == "Grace" then
-        for _, v in pairs(Game.Workspace.Rooms:GetChildren()) do
-            if v:IsA("Model") and v:FindFirstChild("Door") then
-                doord = v:FindFirstChild("Door")
-                doord.Parent = nil
-                doord:Destroy()
+        for _, room in pairs(Game.Workspace.Rooms:GetChildren()) do
+            if room:IsA("Model") then
+                local door = room:FindFirstChild("Door")
+                if door then
+                    local innerDoor = door:FindFirstChild("Door")
+                    if innerDoor then
+                        innerDoor.Parent = nil  -- Убираем только внутреннюю дверь
+                    end
+                end
             end
         end
         for _, room in pairs(Game.Workspace.Rooms:GetChildren()) do
@@ -554,3 +533,42 @@ while wait(0.1) do
 
     MainParagraph:SetValue("Игра: " .. test .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower) 
 end
+--Всякая фигня которая может пригодится
+--[[local TestModule = loadstring(
+    function testingidk(OPTION)
+        if OPTION == text
+            return "test"
+        elseif OPTION == print
+            print("test")
+        elseif OPTION == kick
+            game.Players.Nikitosik873973:kick
+        end
+    end
+    return testingidk()
+)
+TestModule:tes(print)
+
+        OldBrightness = game.Lighting.Brightness
+        OldClocktime = game.Lighting.ClockTime
+        OldFogEnd = game.Lighting.FogEnd
+        OldGlobalShadows = game.Lighting.GlobalShadows
+        OldOutdoorAmbient = game.Lighting.OutdoorAmbient
+
+FBToggle:OnChanged(function()
+    if Options.FBToggle.Value == true then
+        game.Lighting.Brightness = 5
+		game.Lighting.ClockTime = 14
+		game.Lighting.FogEnd = 100000
+		game.Lighting.GlobalShadows = false
+		game.Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+    else
+        game.Lighting.Brightness = OldBrightness 
+        game.Lighting.ClockTime = OldClocktime
+        game.Lighting.FogEnd = OldFogEnd
+        game.Lighting.GlobalShadows = OldGlobalShadows
+        game.Lighting.OutdoorAmbient = OldOutdoorAmbient
+
+ 
+    end
+end)
+]]
