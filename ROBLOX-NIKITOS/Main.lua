@@ -1,24 +1,3 @@
---[[
-Материалы отмеченые ниже, не мои
-Библиотека для визуала
-https://github.com/ActualMasterOogway/Fluent-Renewed/
-Библиотека с иконками | 1
-https://lucide.dev/icons/
-Библиотека с иконками | 2
-https://phosphoricons.com/
-Plutonium Hub
-loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/main/Plutonium.Loader.lua", true))()
-BlackKing Hub
-loadstring(game:HttpGet('https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing'))()
-
-Я использовал ChatGpt
-Это мой первый скрипт
-
-/ Не судите строго /
-
-Я в Telegram: @Chelik_Chepubelik
-]]--
-
 --Loadstring-и
 local Library = loadstring(game:HttpGetAsync("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))() --Библиотека Fluent
 local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Aitekus/main/refs/heads/main/ROBLOX-NIKITOS/SaveManager_RU.lua"))() --Модуль сохранений
