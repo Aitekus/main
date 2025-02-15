@@ -6,11 +6,7 @@
 
 NIKITOS
 
-[Библиотека для визуала](https://github.com/ActualMasterOogway/Fluent-Renewed/)
-[Библиотека с иконками 1](https://lucide.dev/icons/)
-[Библиотека с иконками 2](https://phosphoricons.com/)
-[Plutonium Hub](https://github.com/PawsThePaw)
-[BlackKing Hub](https://github.com/KINGHUB01)
+[Библиотека для визуала](https://github.com/ActualMasterOogway) | [Библиотека с иконками 1](https://lucide.dev/icons/) | [Библиотека с иконками 2](https://phosphoricons.com/) | [Plutonium Hub](https://github.com/PawsThePaw) | [BlackKing Hub](https://github.com/KINGHUB01)
 
 Я использовал ChatGpt и это мой первый скрипт
 
