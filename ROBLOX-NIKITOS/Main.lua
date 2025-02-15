@@ -181,11 +181,11 @@ Tabs.Main:CreateButton{ --Создание кнопки с подтвержде�
 }
 
 if CurGame == "Grace" then --Подтверждение того, что текущая игра Grace
-Tabs.Main:CreateButton{ --Создание кнопки с подтверждением // Кнопка на удаление Carnation, Slugfish, Sorrow, Goatman
-    Title = "Уничтожить Carnation, Slugfish, Sorrow, Goatman",
-    Description = "Прикольно, да?",
-    Callback = function()
-        Window:Dialog{
+Tabs.Main:CreateButton{ --Создание кнопки с подтверждением // Кнопка на бессмертие // Grace
+    Title = "Бессмертие", --Название кнопки
+    Description = "Только для Grace", --Описание кнопки
+    Callback = function() --Актвиация при нажатии
+        Window:Dialog{ --Призыв окна диалога
             Title = "Точно?", --Название кнопки
             Content = " ", --Контент окна диалога
             Buttons = { --Кнопки окна диалога
@@ -193,17 +193,17 @@ Tabs.Main:CreateButton{ --Создание кнопки с подтвержде�
                     Title = "Confirm", --Название кнопки окна диалога
                     Callback = function() --Активация при нажатии
                         local RS = game.ReplicatedStorage --Создание переменной для game.ReplicatedStorage
-                        RS.SendRush:Destroy() --Удаление Carnation
-                        RS.SendWorm:Destroy() --Удаление Slugfish
-                        RS.SendSorrow:Destroy() --Удаление Sorrow
-                        RS.SendGoatman:Destroy() --Удаление Goatman
-                        print("NIKITOSIK | Принятие удаления всех сущностей в Grace") --Написать в консоль
+                        KillClient = RS:FindFirstChild("KillClient")
+                        KillClient.Parent = nil
+                        RS.eyegui.Enabled = false
+                        RS.smilegui.Enabled = false
+                        print("NIKITOSIK | Принятие Godmod | Grace") --Написать в консоль
                     end
                 },
                 {
                     Title = "Cancel", --Название кнопки окна диалога
                     Callback = function() --Активация при нажатии
-                        Print("NIKITOSIK | Отказ от уничтожения всех сущностей") --Написать в консоль
+                        Print("NIKITOSIK | Отказ от Godmode | Grace") --Написать в консоль
                     end
                 }
             }
