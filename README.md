@@ -6,11 +6,11 @@
 
 NIKITOS
 
-Библиотека для визуала| https://github.com/ActualMasterOogway/Fluent-Renewed/
-Библиотека с иконками | https://lucide.dev/icons/
-Библиотека с иконками | https://phosphoricons.com/
-Plutonium Hub         | loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/main/Plutonium.Loader.lua", true))()
-BlackKing Hub         | loadstring(game:HttpGet('https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing'))()
+[Библиотека для визуала](https://github.com/ActualMasterOogway/Fluent-Renewed/)
+[Библиотека с иконками 1](https://lucide.dev/icons/)
+[Библиотека с иконками 2](https://phosphoricons.com/)
+[Plutonium Hub](loadstring(game:HttpGet("https://github.com/PawsThePaw)
+[BlackKing Hub](loadstring(game:HttpGet('https://github.com/KINGHUB01)
 
 Я использовал ChatGpt и это мой первый скрипт
 
