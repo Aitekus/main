@@ -13,18 +13,18 @@ local PlayerHuma = PLayerChar.Humanoid --Humanoid игрока
 local PlaceId = game.PlaceId --PlaceId игры
 local CurGame = "He поддержана" --Перемменая отвечающая за игру
 
-local Fisch = 16732694052
-local BABFT = 537413528
-local TSB = 10449761463
-local BladeBall = 13772394625
-local DoorsLobby = 6516141723
-local DoorsIn = 6839171747
-local PressureIn = "Unknown"
-local DustyTripIn = "Unknown"
-local Grace = 110333320616502
+local Games = {
+    [16732694052] = "Fisch",
+    [537413528] = "BABFT",
+    [10449761463] = "TSB",
+    [13772394625] = "Blade Ball",
+    [6516141723] = "Doors - лобби",
+    [6839171747] = "Doors - В игре",
+    [110333320616502] = "Grace"
+}
 
-if PlaceId == Grace then CurGame = "Grace" elseif PlaceId == Fisch then CurGame = "Fisch" elseif PlaceId == BABFT then CurGame = "BABFT" elseif PlaceId == TSB then CurGame = "TSB" elseif PlaceId == BladeBall then CurGame = "Blade Ball" elseif PlaceId == DoorsLobby then CurGame = "Doors - лобби" elseif PlaceId == DoorsIn then CurGame = "Doors - В игре" elseif PlaceId == PreasureIn then CurGame = "Pressure" elseif PlaceId == DustyTripIn then CurGame = "DustyTrip - В игре" else  CurGame = "Не найдено"
-end --Проверка Id-Шников. Если не найдено, то ничего не изменяется и остается "Не поддержана" // см. строку 30
+local CurGame = Games[game.PlaceId] or "Не найдено"
+--Проверка Id-Шников. Если не найдено, то ничего не изменяется и остается "Не поддержана" // см. строку 30
 
 --Необязательный дебаг
 test = "test123@"
