@@ -1,3 +1,4 @@
+warn("NIKITOS // Привет!")
 --Loadstring-и
 local Library = loadstring(game:HttpGetAsync("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))() --Библиотека Fluent
 local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Aitekus/main/refs/heads/main/ROBLOX-NIKITOS/SaveManager_RU.lua"))() --Модуль сохранений
@@ -5,31 +6,27 @@ local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercon
 
 --Игрок
 local Player = game.Players.LocalPlayer --Игрок в game.Players
-local PLayerName = Player.Name --Nickname игрока
-local PLayerChar = Player.Character --Персонаж игрока
-local PlayerHuma = PLayerChar.Humanoid --Humanoid игрока
+local PlayerName = Player.Name --Nickname игрока
+local PlayerChar = Player.Character --Персонаж игрока
+local PlayerHuma = PlayerChar.Humanoid --Humanoid игрока
 
 --Игра + Айдишники
 local PlaceId = game.PlaceId --PlaceId игры
-local CurGame = "He поддержана" --Перемменая отвечающая за игру
-
-local Games = {
+local Games = { --Список игр и их ID
     [16732694052] = "Fisch",
     [537413528] = "BABFT",
     [10449761463] = "TSB",
     [13772394625] = "Blade Ball",
-    [6516141723] = "Doors - лобби",
+    [6516141723] = "Doors - В лобби",
     [6839171747] = "Doors - В игре",
-    [110333320616502] = "Grace"
+    [138837502355157] = "Grace - В лобби",
+    [110333320616502] = "Grace - В игре"
 }
-
-local CurGame = Games[game.PlaceId] or "Не найдено"
---Проверка Id-Шников. Если не найдено, то ничего не изменяется и остается "Не поддержана" // см. строку 30
-
---Необязательный дебаг
-test = "test123@"
-
-
+local function NotFoundGame() --Функция которая выдает ID игры если она не поддержана
+    CurGame = "Не поддержана"
+    print(game.PlaceId)
+end
+local CurGame = Games[game.PlaceId] or NotFoundGame --Установка переменной на название игры // Запуск функции см. строку 26
 
 --Fluent
 
@@ -67,7 +64,7 @@ Library:Notify{ --Оповестить
 }
 
 local MainParagraph = Tabs.Main:CreateParagraph("MainParagraph", { --Параграф 1 // Общая инфа
-    Title = "Здраствуй, " .. PLayerName, --Название параграфа
+    Title = "Здраствуй, " .. PlayerName, --Название параграфа
     Content = "Игра: " .. CurGame .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower, --Контент параграфа
 })
 
@@ -121,11 +118,11 @@ local Slider = Tabs.Main:AddSlider("Slider", { --Создание слайдер
 	Title = "Скорость", --Название слайдера
 	Description = "He испоьзуйте в Doors и в других играх где может быть Анти-Чит", --Описание слайдера
 	default = 16, --Начальное значение
-	Min = 0, --Минимальное значение
+	Min = 16, --Минимальное значение
 	Max = 100, --Максимальное значение
 	Rounding = 2, --Изменение значения
 	Callback = function(Value) --Функция при изменении значения
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value --Установка скорости Humanoid-у
+		PlayerHuma.WalkSpeed = Value --Установка скорости Humanoid-у
 	end
 })
 Tabs.Main:CreateButton{ --Создание кнопки с подтверждением // Кнопка на загрузку Plutonium Hub
@@ -187,17 +184,17 @@ Tabs.Main:CreateButton{ --Создание кнопки с подтвержде�
     Callback = function() --Актвиация при нажатии
         Window:Dialog{ --Призыв окна диалога
             Title = "Точно?", --Название кнопки
-            Content = " ", --Контент окна диалога
+            Content = "Не попадайся на Slight, Heed и на другие сущности которые могут двигать камеру. Они сломают камеру и игра станет неиграбельной", --Контент окна диалога
             Buttons = { --Кнопки окна диалога
                 {
                     Title = "Confirm", --Название кнопки окна диалога
                     Callback = function() --Активация при нажатии
                         local RS = game.ReplicatedStorage --Создание переменной для game.ReplicatedStorage
-                        KillClient = RS:FindFirstChild("KillClient")
-                        KillClient.Parent = nil
-                        RS.eyegui.Enabled = false
-                        RS.smilegui.Enabled = false
-                        print("NIKITOSIK | Принятие Godmod | Grace") --Написать в консоль
+                        PLayerChar.die:Destroy() --Удаления скрипта на вызов RemoteFuntion для смерти
+                        RS.KillClient:Destroy() --Удаление RemoteFuntion для смерти
+                        RS.eyegui:Destroy()
+                        RS.smilegui:Destroy()
+                        RS.SendGoatman:Destroy() --Удаление Goatman
                     end
                 },
                 {
@@ -479,15 +476,15 @@ Library:Notify{
 SaveManager:LoadAutoloadConfig()
 --Бесконечности
 
-while wait(1) do
-    if CurGame == "Grace" then
+while wait(0.1) do
+    if CurGame == "Grace - В игре" then
         for _, room in pairs(Game.Workspace.Rooms:GetChildren()) do
             if room:IsA("Model") then
                 local door = room:FindFirstChild("Door")
                 if door then
                     local innerDoor = door:FindFirstChild("Door")
                     if innerDoor then
-                        innerDoor.Parent = nil  -- Убираем только внутреннюю дверь
+                        innerDoor.Parent = nil --Убираем только внутреннюю дверь
                     end
                 end
             end
@@ -498,7 +495,11 @@ while wait(1) do
             if safeRoom then
                 local vaultEntrance = safeRoom:FindFirstChild("VaultEntrance")
                 if vaultEntrance then
+                    function onTouched()
+                    vaultEntrance.Open:FireServer()
                     vaultEntrance.Parent = nil
+                    end
+                    script.Parent.Touched:Connect(onTouched())
                 end
             end
         end
@@ -510,7 +511,7 @@ while wait(1) do
     PLayerChar = Player.Character
     PlayerHuma = PLayerChar.Humanoid
 
-    MainParagraph:SetValue("Игра: " .. test .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower) 
+    MainParagraph:SetValue("Игра: " .. CurGame .. "\nИнфa:\nXП - " .. PlayerHuma.Health .. "/" .. PlayerHuma.MaxHealth .. " Скорость - " .. PlayerHuma.WalkSpeed .. " Сила прыжка - " .. PlayerHuma.JumpPower) 
 end
 --Всякая фигня которая может пригодится
 --[[local TestModule = loadstring(
@@ -550,4 +551,8 @@ FBToggle:OnChanged(function()
  
     end
 end)
-]]
+RS.SendRush:Destroy() --Удаление Carnation
+                        RS.SendWorm:Destroy() --Удаление Slugfish
+                        RS.SendSorrow:Destroy() --Удаление Sorrow
+                        RS.SendGoatman:Destroy() --Удаление Goatman
+]]--
