@@ -12,7 +12,7 @@ local PlayerHuma = PlayerChar.Humanoid --Humanoid игрока
 
 --Игра + Айдишники
 local PlaceId = game.PlaceId --PlaceId игры
-local Games = { --Список игр и их ID
+local Games = { --Список игр и их ID (Скоро будет больше игр!)
     [16732694052] = "Fisch",
     [537413528] = "BABFT",
     [10449761463] = "TSB",
